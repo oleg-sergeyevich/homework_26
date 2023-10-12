@@ -7,7 +7,7 @@
 Array::Array(const int size) : size_(size)
 {
     array_.reserve(size_);
-    srand(std::time(0));
+    srand(0);
     for (int i = 0; i < size_; i++)
     {
         array_.push_back(rand() % 100);
