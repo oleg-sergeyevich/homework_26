@@ -15,7 +15,7 @@ int main()
             for (const auto t : threads)
             {
                 auto start = clock();
-                int sum = array.sumArray(t);
+                long long sum = array.sumArray(t);
                 auto end = clock();
                 auto time = difftime(end, start);
                 std::cout << "array size: " << size << ", sum in " << t

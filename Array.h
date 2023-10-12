@@ -10,11 +10,11 @@ public:
 
 	Array(const int size);
 
-	int sumArray(const short number_threads);
+	long long sumArray(const short number_threads);
 
 private:
 	int size_ = 0;
 	std::vector<int> array_;
 
-	void sumThread(size_t l_index, size_t r_index, int* array_sum, size_t i);
+	void sumThread(size_t l_index, size_t r_index, long long* array_sum, size_t i);
 };

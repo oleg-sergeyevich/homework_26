@@ -10,13 +10,13 @@ Array::Array(const int size) : size_(size)
     srand(std::time(0));
     for (int i = 0; i < size_; i++)
     {
-        array_.push_back(rand() % 10);
+        array_.push_back(rand() % 100);
     }
 }
 
-void Array::sumThread(size_t l_index, size_t r_index, int* array_sum, size_t i)
+void Array::sumThread(size_t l_index, size_t r_index, long long* array_sum, size_t i)
 {
-    int sum = 0;
+    long long sum = 0;
     while (l_index <= r_index)
     {
         sum += array_.at(l_index);
@@ -25,10 +25,10 @@ void Array::sumThread(size_t l_index, size_t r_index, int* array_sum, size_t i)
     array_sum[i] = sum;
 }
 
-int Array::sumArray(const short number_threads)
+long long Array::sumArray(const short number_threads)
 {
     std::vector<std::thread> threads;
-    int array_sum[12]{};
+    long long array_sum[12]{};
     size_t l_index = 0;
     size_t r_index = 0;
     size_t interval = size_ / number_threads;
@@ -54,7 +54,7 @@ int Array::sumArray(const short number_threads)
             t.join();
     }
 
-    int sum = 0;
+    long long sum = 0;
     for (const auto& i : array_sum)
     {
         sum += i;
